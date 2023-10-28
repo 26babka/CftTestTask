@@ -12,9 +12,9 @@ namespace BullsAndCows
 
         public static readonly string InvalidLength = "Invalid length. The length should be {0}";
 
-        public static readonly string Lose = "You lose";
+        public static readonly string NotGuessed = "You didn't guess the number";
 
-        public static readonly string Win = "You win";
+        public static readonly string Guessed = "You guessed the number";
 
         public static readonly string WrongMode = "Wrong mode. Select 1 or 2 mode";
 

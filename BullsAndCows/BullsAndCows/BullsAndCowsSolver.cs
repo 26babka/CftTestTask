@@ -35,7 +35,7 @@ namespace BullsAndCows
             AttemptsLeft = TotalAttempts;
         }
 
-        public void Play()
+        public bool Play()
         {
             while (AttemptsLeft > 0)
             {
@@ -47,13 +47,14 @@ namespace BullsAndCows
 
                 if (IsGuessed(number))
                 {
-                    Console.WriteLine(LocalizedStrings.Win);
-                    return;
+                    Console.WriteLine(LocalizedStrings.Guessed);
+                    return true;
                 }
 
                 AttemptsLeft--;
             }
-            Console.WriteLine(LocalizedStrings.Lose);
+            Console.WriteLine(LocalizedStrings.NotGuessed);
+            return false;
         }
 
         private bool IsGuessed(string number)
@@ -64,13 +65,12 @@ namespace BullsAndCows
             {
                 for (int j = 0; j < GuessNum.Length; j++)
                 {
-                    if (number[i] == GuessNum[j] && i == j)
+                    if (number[i] == GuessNum[j])
                     {
-                        bulls++;
-                    }
-                    else if (number[i] == GuessNum[j])
-                    {
-                        cows++;
+                        if (i == j)
+                            bulls++;
+                        else
+                            cows++;
                     }
                 }
             }
